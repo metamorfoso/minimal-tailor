@@ -3,7 +3,7 @@ import { browserHistory } from "react-router";
 import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import createSagaMiddleware from "redux-saga";
 import freeze from "redux-freeze";
-import { reducers } from "./reducers/index";
+import rootReducer from "./reducers/index";
 import { sagas } from "./sagas/index";
 
 // add the middlewares
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
 }
 
 // create the store
-const store = createStore(reducers, middleware);
+const store = createStore(rootReducer, middleware);
 const history = syncHistoryWithStore(browserHistory, store);
 sagaMiddleware.run(sagas);
 

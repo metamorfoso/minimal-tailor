@@ -1,10 +1,13 @@
-import { combineReducers } from "redux"
 import { routerReducer } from "react-router-redux"
 import { reducer as formReducer } from "redux-form"
+import measurementInput from './MeasurementInput'
 
-// main reducers
-export const reducers = combineReducers({
-  routing: routerReducer,
-  form: formReducer,
-  // your reducer here
-})
+export default function rootReducer (state = {}, action) {
+  return {
+    // library reducers
+    routing: routerReducer,
+    // form: formReducer,
+    // own reducers
+    currentMeasurements: measurementInput(state.currentMeasurements, action)
+  }
+}

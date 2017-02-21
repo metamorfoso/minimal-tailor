@@ -1,4 +1,4 @@
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import Diagram from '../components/Diagram'
 
 const mapStateToProps = (state) => {
